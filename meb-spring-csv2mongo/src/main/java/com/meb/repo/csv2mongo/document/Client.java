@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document(collection = "customers")
-public class Customer {
+public class Client {
 
 	@Id
 	private Long customerId;
@@ -16,7 +16,7 @@ public class Customer {
 
 	private int age;
 	
-	public Customer(Long id, String name, String address, int age) {
+	public Client(Long id, String name, String address, int age) {
 		this.customerId = id;
 		this.customerName = name;
 		this.city = address;

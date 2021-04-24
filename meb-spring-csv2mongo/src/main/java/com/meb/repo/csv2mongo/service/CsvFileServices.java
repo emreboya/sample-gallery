@@ -8,7 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.meb.repo.csv2mongo.document.Customer;
+import com.meb.repo.csv2mongo.document.Client;
 import com.meb.repo.csv2mongo.repository.CustomerRepository;
 import com.meb.repo.csv2mongo.utils.ApacheCSVUtilities;
 
@@ -22,7 +22,7 @@ public class CsvFileServices {
 	public void persistDB(InputStream file) {
 		try {
 			
-			List<Customer> lstCustomers = ApacheCSVUtilities.parseCsvFile(file);
+			List<Client> lstCustomers = ApacheCSVUtilities.parseCsvFile(file);
 			
 			customerRepository.saveAll(lstCustomers);
 			
@@ -34,7 +34,7 @@ public class CsvFileServices {
 	
     public void getFromDB2File(Writer writer) throws IOException {
     	try {
-        	List<Customer> customers = (List<Customer>) customerRepository.findAll();
+        	List<Client> customers = (List<Client>) customerRepository.findAll();
         	
 
              ApacheCSVUtilities.customersToCsv(writer, customers);
