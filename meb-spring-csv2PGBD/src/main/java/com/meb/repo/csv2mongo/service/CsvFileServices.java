@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.meb.repo.csv2mongo.document.Citizens;
-import com.meb.repo.csv2mongo.repository.CustomerRepository;
+import com.meb.repo.csv2mongo.repository.CitizenRepository;
 import com.meb.repo.csv2mongo.utils.ApacheCSVUtilities;
 
 
@@ -17,7 +17,7 @@ import com.meb.repo.csv2mongo.utils.ApacheCSVUtilities;
 public class CsvFileServices {
 	
 	@Autowired
-	CustomerRepository customerRepository;
+	CitizenRepository customerRepository;
 
 	public void persistDB(InputStream file) {
 		try {
