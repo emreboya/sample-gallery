@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.meb</groupId>
-	<artifactId>meb-spring-csv2mongo</artifactId>
+	<artifactId>meb-spring-csv2PGDB</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>meb-spring-csv2mongo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>meb-spring-csv2PGDB</name>
+	<description>Sample-Gallery-SpringBoot</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
