@@ -16,10 +16,10 @@ public class Citizens {
 
 	private int age;
 	
-	public Citizens(Long id, String name, String address, int age) {
-		this.citizenId = id;
-		this.citizenName = name;
-		this.city = address;
+	public Citizens(Long citizenID, String citizenName, String city, int age) {
+		this.citizenId = citizenID;
+		this.citizenName = citizenName;
+		this.city = city;
 		this.age = age;
 	}
 
@@ -35,8 +35,8 @@ public class Citizens {
 		return citizenName;
 	}
 
-	public void setName(String name) {
-		this.citizenName = name;
+	public void setName(String citizenName) {
+		this.citizenName = citizenName;
 	}
 
 	public String getCity() {
@@ -57,7 +57,7 @@ public class Citizens {
 
 	@Override
 	public String toString() {
-		return "CitizenID [id=" + citizenId + ", CitizenName=" + citizenName + ", address=" + city + ", age=" + age + "]";
+		return "CitizenID [id=" + citizenId + ", CitizenName=" + citizenName + ", city=" + city + ", age=" + age + "]";
 	}
 
 }
