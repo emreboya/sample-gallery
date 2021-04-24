@@ -4,39 +4,39 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Document(collection = "customers")
-public class Client {
+@Document(collection = "citizens")
+public class Citizens {
 
 	@Id
-	private Long customerId;
+	private Long citizenId;
 
-	private String customerName;
+	private String citizenName;
 
 	private String city;
 
 	private int age;
 	
-	public Client(Long id, String name, String address, int age) {
-		this.customerId = id;
-		this.customerName = name;
+	public Citizens(Long id, String name, String address, int age) {
+		this.citizenId = id;
+		this.citizenName = name;
 		this.city = address;
 		this.age = age;
 	}
 
 	public Long getId() {
-		return customerId;
+		return citizenId;
 	}
 
 	public void setId(Long id) {
-		this.customerId = id;
+		this.citizenId = id;
 	}
 
 	public String getName() {
-		return customerName;
+		return citizenName;
 	}
 
 	public void setName(String name) {
-		this.customerName = name;
+		this.citizenName = name;
 	}
 
 	public String getCity() {
@@ -57,7 +57,7 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + customerId + ", name=" + customerName + ", address=" + city + ", age=" + age + "]";
+		return "CitizenID [id=" + citizenId + ", CitizenName=" + citizenName + ", address=" + city + ", age=" + age + "]";
 	}
 
 }

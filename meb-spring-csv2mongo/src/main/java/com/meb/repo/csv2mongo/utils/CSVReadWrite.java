@@ -8,7 +8,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.meb.repo.csv2mongo.document.Client;
+import com.meb.repo.csv2mongo.document.Citizens;
 import com.opencsv.CSVWriter;
 import com.opencsv.bean.ColumnPositionMappingStrategy;
 import com.opencsv.bean.CsvToBean;
@@ -18,22 +18,22 @@ import com.opencsv.bean.StatefulBeanToCsvBuilder;
 
 public class CSVReadWrite {
 
-	public static List<Client> parseCsvFile(InputStream is) {
+	public static List<Citizens> parseCsvFile(InputStream is) {
 		String[] CSV_HEADER = { "id", "name", "address", "age" };
 		Reader fileReader = null;
-		CsvToBean<Client> csvToBean = null;
+		CsvToBean<Citizens> csvToBean = null;
 	
-		List<Client> customers = new ArrayList<Client>();
+		List<Citizens> customers = new ArrayList<Citizens>();
 		
 		try {
 			fileReader = new InputStreamReader(is);
 	
-			ColumnPositionMappingStrategy<Client> mappingStrategy = new ColumnPositionMappingStrategy<Client>();
+			ColumnPositionMappingStrategy<Citizens> mappingStrategy = new ColumnPositionMappingStrategy<Citizens>();
 	
-			mappingStrategy.setType(Client.class);
+			mappingStrategy.setType(Citizens.class);
 			mappingStrategy.setColumnMapping(CSV_HEADER);
 	
-			csvToBean = new CsvToBeanBuilder<Client>(fileReader).withMappingStrategy(mappingStrategy).withSkipLines(1)
+			csvToBean = new CsvToBeanBuilder<Citizens>(fileReader).withMappingStrategy(mappingStrategy).withSkipLines(1)
 					.withIgnoreLeadingWhiteSpace(true).build();
 	
 			customers = csvToBean.parse();
@@ -54,20 +54,20 @@ public class CSVReadWrite {
 		return customers;
 	}
 
-	public static void customersToCsv(Writer writer, List<Client> customers) {
+	public static void customersToCsv(Writer writer, List<Citizens> customers) {
 		String[] CSV_HEADER = { "id", "name", "address", "age" };
 	    
-	    StatefulBeanToCsv<Client> beanToCsv = null;
+	    StatefulBeanToCsv<Citizens> beanToCsv = null;
 	 
 	    try {
 	      // write List of Objects
-	      ColumnPositionMappingStrategy<Client> mappingStrategy = 
-	                new ColumnPositionMappingStrategy<Client>();
+	      ColumnPositionMappingStrategy<Citizens> mappingStrategy = 
+	                new ColumnPositionMappingStrategy<Citizens>();
 	      
-	      mappingStrategy.setType(Client.class);
+	      mappingStrategy.setType(Citizens.class);
 	      mappingStrategy.setColumnMapping(CSV_HEADER);
 	      
-	      beanToCsv = new StatefulBeanToCsvBuilder<Client>(writer)
+	      beanToCsv = new StatefulBeanToCsvBuilder<Citizens>(writer)
 	          .withMappingStrategy(mappingStrategy)
 	                    .withQuotechar(CSVWriter.NO_QUOTE_CHARACTER)
 	                    .build();

@@ -15,16 +15,16 @@ import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.meb.repo.csv2mongo.document.Client;
+import com.meb.repo.csv2mongo.document.Citizens;
 
 public class ApacheCSVUtilities {
 	private static String csvExtension = "csv";
 	
-	public static void customersToCsv(Writer writer, List<Client> customers) throws IOException {
+	public static void customersToCsv(Writer writer, List<Citizens> customers) throws IOException {
 
 		try (CSVPrinter csvPrinter = new CSVPrinter(writer,
 				CSVFormat.DEFAULT.withHeader("customerId", "customerName", "city", "age"));) {
-			for (Client customer : customers) {
+			for (Citizens customer : customers) {
 				List<String> data = Arrays.asList(String.valueOf(customer.getId()), customer.getName(),
 						customer.getCity(), String.valueOf(customer.getAge()));
 
@@ -37,11 +37,11 @@ public class ApacheCSVUtilities {
 		}
 	}
 
-	public static List<Client> parseCsvFile(InputStream is) {
+	public static List<Citizens> parseCsvFile(InputStream is) {
 		BufferedReader fileReader = null;
 		CSVParser csvParser = null;
 
-		List<Client> customers = new ArrayList<Client>();
+		List<Citizens> customers = new ArrayList<Citizens>();
 
 		try {
 			fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
@@ -51,7 +51,7 @@ public class ApacheCSVUtilities {
 			Iterable<CSVRecord> csvRecords = csvParser.getRecords();
 
 			for (CSVRecord csvRecord : csvRecords) {
-				Client customer = new Client(Long.parseLong(csvRecord.get("id")), csvRecord.get("name"),
+				Citizens customer = new Citizens(Long.parseLong(csvRecord.get("id")), csvRecord.get("name"),
 						csvRecord.get("address"), Integer.parseInt(csvRecord.get("age")));
 
 				customers.add(customer);
