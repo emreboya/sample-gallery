@@ -23,7 +23,7 @@ public class CSVReadWrite {
 		Reader fileReader = null;
 		CsvToBean<Citizens> csvToBean = null;
 	
-		List<Citizens> customers = new ArrayList<Citizens>();
+		List<Citizens> citizens = new ArrayList<Citizens>();
 		
 		try {
 			fileReader = new InputStreamReader(is);
@@ -36,9 +36,9 @@ public class CSVReadWrite {
 			csvToBean = new CsvToBeanBuilder<Citizens>(fileReader).withMappingStrategy(mappingStrategy).withSkipLines(1)
 					.withIgnoreLeadingWhiteSpace(true).build();
 	
-			customers = csvToBean.parse();
+			citizens = csvToBean.parse();
 			
-			return customers;
+			return citizens;
 		} catch (Exception e) {
 			System.out.println("Reading CSV Error!");
 			e.printStackTrace();
@@ -51,7 +51,7 @@ public class CSVReadWrite {
 			}
 		}
 		
-		return customers;
+		return citizens;
 	}
 
 	public static void customersToCsv(Writer writer, List<Citizens> customers) {
