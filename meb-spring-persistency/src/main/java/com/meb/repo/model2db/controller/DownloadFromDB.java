@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.meb.repo.model2db.service.Csv2DatabaseService;
 
+// lest write our rest interface
+
 @RestController
 public class DownloadFromDB {
 	
